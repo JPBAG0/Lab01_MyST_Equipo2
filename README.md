@@ -8,10 +8,10 @@ impacto de la selección adversa sobre su rentabilidad.
 
 ## Integrantes
 
-| Integrante | GitHub |
-|---|---|
-| Juan Pablo Bañuelos Gómez | [@JPBAG0](https://github.com/JPBAG0) |
-| Gian | *(pendiente)* |
+| Integrante |
+|---|
+| Juan Pablo Barba González |
+| Gian Carlo Campos Sayavedra  |
 
 ## Descripción
 
