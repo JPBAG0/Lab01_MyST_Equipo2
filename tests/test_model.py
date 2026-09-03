@@ -50,6 +50,11 @@ def test_perdida_informados_decrece_en_A_sobre_una_malla(par):
     perdidas = [perdida_ask(A, par) for A in As]
     assert np.all(np.diff(perdidas) < 0.0)
 
+@pytest.mark.parametrize("B", [16.0, 17.0, 18.0, 19.0, 19.9])
+def test_perdida_bid_es_creciente_en_B(par, B):
+   
+    assert perdida_bid(B, par) < perdida_bid(B + 0.5, par)
+
 
 # ---------------------------------------------------------------- obligatoria 3
 def test_sin_informados_el_optimo_es_el_del_monopolista():
