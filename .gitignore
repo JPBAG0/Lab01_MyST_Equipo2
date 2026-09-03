@@ -1,0 +1,21 @@
+# entornos
+.venv/
+venv/
+env/
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# pruebas
+.pytest_cache/
+
+# notebooks
+.ipynb_checkpoints/
+
+# editores y sistema
+.claude/
+.vscode/
+.idea/
+.DS_Store
