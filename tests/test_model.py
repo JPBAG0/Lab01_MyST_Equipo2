@@ -11,7 +11,9 @@ import pytest
 from model import (Parametros, SEED, ganancia_liquidez, optimizar,
                    perdida_ask, perdida_bid, perdida_informados,
                    prob_ejecucion, sensibilidad, spread_monopolista,
-                   utilidad_esperada)
+                   utilidad_esperada, objetivo)
+
+
 from simulation import (REGIMENES_FIJOS, monte_carlo, resumen_monte_carlo,
                         simular_regimenes, simular_trades)
 
@@ -226,3 +228,12 @@ def test_los_regimenes_comparten_la_secuencia_aleatoria(par):
     a, b = sims["estrecho"], sims["amplio"]
     np.testing.assert_allclose(a["valor_P"], b["valor_P"])
     np.testing.assert_array_equal(a["informado"], b["informado"])
+
+
+def test_objetivo_penaliza_bid_mayor_que_ask(par):
+    
+    valor_invalido = objetivo((20.0, 20.5), par)
+    assert valor_invalido == 1e6
+
+    valor_valido = objetivo((par.S0 + 1.0, par.S0 - 1.0), par)
+    assert valor_valido < 1e6
